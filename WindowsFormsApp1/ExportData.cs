@@ -17,13 +17,16 @@ namespace WindowsFormsApp1
             Exsel.Application application = new Exsel.Application();
             var workbook = application.Workbooks.Add();
             var worksheet = workbook.ActiveSheet;
+            worksheet.Cells[1, 1] = "Код города";
+            worksheet.Cells[1, 2] = "Название";
+            worksheet.Cells[1, 3] = "Регион";
             int rowCount = dataGridView.Rows.Count + 1;
             int columnCount = dataGridView.Columns.Count + 1;
             for (int i = 1; i < rowCount; i++)
             {
                 for (int j = 1; j < columnCount; j++)
                 {                   
-                    worksheet.Cells[i, j] = dataGridView.Rows[i - 1].Cells[j - 1].Value;
+                    worksheet.Cells[i+1, j] = dataGridView.Rows[i - 1].Cells[j - 1].Value;
                 }
             }
             workbook.SaveAs(path);
