@@ -57,7 +57,7 @@
             // 
             // chk
             // 
-            this.chk.HeaderText = "";
+            this.chk.HeaderText = "check";
             this.chk.Name = "chk";
             this.chk.Width = 40;
             // 

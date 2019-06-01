@@ -26,14 +26,10 @@ namespace WindowsFormsApp1
             AddHeaderCheckBox();
             HeaderCheckBox.MouseClick += new MouseEventHandler(HeaderCheckBox_MouseClick);
         }
-
-        private void Form1_Load(object sender, EventArgs e)
+       
+        private void Button1_Click(object sender, EventArgs e)
         {
             
-            //addata();
-        }
-        private void Button1_Click(object sender, EventArgs e)
-        {           
             ExportData.WriteToExsel(dataGridView1);
         }
 
