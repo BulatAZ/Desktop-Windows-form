@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.Entity;
+
 
 namespace WindowsFormsApp1
 {
@@ -14,7 +16,22 @@ namespace WindowsFormsApp1
     {
         public Form1()
         {
-            InitializeComponent();
+            CitiesDBContext dbContext;
+
+            InitializeComponent();            
+            dbContext = new CitiesDBContext();
+            SampleData.EditCity(dbContext);
+            dbContext.Cities.Load();
+
+            dataGridView1.DataSource = dbContext.Cities.Local.ToBindingList();
         }
+
+        private void Button1_Click(object sender, EventArgs e)
+        {           
+            ExportData.WriteToExsel(dataGridView1);
+        }
+
+        
+
     }
 }
